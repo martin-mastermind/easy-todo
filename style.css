@@ -6,3 +6,176 @@
   font-family: "Ubuntu", sans-serif;
   font-display: swap;
 }
+
+main {
+  background: #070403;
+  color: #F6EDE9;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  width: 50%;
+}
+
+.inputs {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 3rem;
+  padding: 0 10rem;
+}
+
+.inputs div {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 1rem;
+}
+
+.inputs div > * {
+  font-size: 1.5rem;
+}
+
+.inputs div input,
+.inputs div textarea {
+  background: #070403;
+  color: #F6EDE9;
+
+  border: 1px solid #F6EDE9;
+
+  padding: .5rem;
+
+  transition: .25s box-shadow;
+}
+
+.inputs div input:focus,
+.inputs div textarea:focus {
+  box-shadow: 0 0 1rem .5rem #F6EDE9;
+}
+
+.inputs div textarea {
+  resize: none;
+}
+
+.inputs button {
+  align-self: flex-end;
+
+  padding: .5rem 1rem;
+
+  font-size: 1.5rem;
+
+  background: #23A9D8;
+  color: #F6EDE9;
+
+  border: none;
+  cursor: pointer;
+
+  transition: .25s background;
+}
+
+.inputs button:hover {
+  background: #006387;
+}
+
+.inputs button:active {
+  background: #005574;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 5rem;
+
+  padding-top: 5rem;
+  max-height: 100vh;
+
+  overflow-y: auto;
+}
+
+.cards .card {
+  width: 50%;
+  min-height: 10rem;
+
+  border: 1px solid #F6EDE9;
+  padding: 1rem;
+
+  position: relative;
+}
+
+.cards .card-solved {
+  color: #6b6b6b;
+  border: 1px solid #6b6b6b;
+}
+
+.card-solved .card__solve {
+  display: none;
+}
+
+.card h2 {
+  display: inline-block;
+  width: 15rem;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card p {
+  margin-top: .5rem;
+
+  display: inline-block;
+  width: 15rem;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card small {
+  position: absolute;
+
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.card div {
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.card div i {
+  font-style: normal;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+
+  transition: .25s color;
+}
+
+.card__close:hover {
+  color: red;
+}
+
+.card__solve:hover {
+  color: greenyellow;
+}
