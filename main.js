@@ -3,13 +3,32 @@ const descriptionTextarea = document.querySelector('#description')
 const addButton = document.querySelector('button')
 const cards = document.querySelector('.cards')
 
-const cardsArr = []
+let cardsArr;
+
+try {
+    cardsArr = JSON.parse(localStorage.cards)
+
+    // Проверка на массив
+    if (!cardsArr.length) {
+        cardsArr = []
+        localStorage.cards = ''
+    }
+
+    drawCards()
+} catch {
+    cardsArr = []
+}
 
 function createCard(i, cardObj) {
     const now = new Date()
 
     const card = document.createElement('article')
-    card.className = 'card'
+
+    if (cardObj.solved) {
+        card.className = 'card card-solved' 
+    } else {
+        card.className = 'card'
+    }
 
     const h2 = document.createElement('h2')
     const p = document.createElement('p')
@@ -29,6 +48,22 @@ function createCard(i, cardObj) {
 
     closeIcon.innerHTML = '✘'
     solveIcon.innerHTML = '✓'
+
+    closeIcon.addEventListener('click', () => {
+        cardsArr.splice(i, 1)
+
+        localStorage.cards = JSON.stringify(cardsArr)
+        drawCards()
+    })
+
+    solveIcon.addEventListener('click', () => {
+        const cardTemp = cardsArr.splice(i, 1)[0]
+        cardTemp.solved = true
+        cardsArr.push(cardTemp)
+
+        localStorage.cards = JSON.stringify(cardsArr)
+        drawCards()
+    })
 
     icons.appendChild(closeIcon)
     icons.appendChild(solveIcon)
@@ -64,6 +99,8 @@ addButton.addEventListener('click', () => {
 
     titleInput.value = ''
     descriptionTextarea.value = ''
+
+    localStorage.cards = JSON.stringify(cardsArr)
 
     drawCards()
 })
