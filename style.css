@@ -102,6 +102,11 @@ section {
   background: #005574;
 }
 
+.inputs button:disabled {
+  background: #568b9e;
+  cursor: not-allowed;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
