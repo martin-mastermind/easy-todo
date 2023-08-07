@@ -7,6 +7,11 @@
   font-display: swap;
 }
 
+:root {
+  --min-vw: 320px;
+  --max-vw: 1024px;
+}
+
 main {
   background: #070403;
   color: #F6EDE9;
@@ -17,10 +22,15 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  gap: 5rem;
+  padding: 5rem;
 }
 
 section {
   width: 50%;
+  min-width: var(--min-vw);
+  max-width: var(--max-vw);
 }
 
 .inputs {
@@ -32,7 +42,6 @@ section {
   align-items: center;
 
   gap: 3rem;
-  padding: 0 10rem;
 }
 
 .inputs div {
@@ -100,16 +109,17 @@ section {
   justify-content: space-between;
   align-items: center;
 
-  gap: 5rem;
+  gap: 3rem;
 
-  padding-top: 5rem;
-  max-height: 100vh;
+  max-height: 100%;
 
   overflow-y: auto;
 }
 
 .cards .card {
-  width: 50%;
+  width: 100%;
+  max-width: var(--min-vw);
+
   min-height: 10rem;
 
   border: 1px solid #F6EDE9;
@@ -129,17 +139,14 @@ section {
 
 .card h2 {
   display: inline-block;
-  width: 15rem;
+  width: 75%;
 
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
 .card p {
-  margin-top: .5rem;
-
-  display: inline-block;
-  width: 15rem;
+  margin-top: 1rem;
 
   text-overflow: ellipsis;
   overflow: hidden;
@@ -178,4 +185,15 @@ section {
 
 .card__solve:hover {
   color: greenyellow;
+}
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+
+  .cards {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
