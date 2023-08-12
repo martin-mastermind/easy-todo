@@ -10,11 +10,18 @@
 :root {
   --min-vw: 320px;
   --max-vw: 1024px;
+
+  --background: #070403;
+  --color: #F6EDE9;
+  --primary: #0839ED;
+  --primary-hover: #0831C4;
+  --primary-active: #082791;
+  --primary-disabled: #575757;
 }
 
 main {
-  background: #070403;
-  color: #F6EDE9;
+  background: var(--background);
+  color: var(--color);
 
   width: 100%;
   min-height: 100vh;
@@ -61,10 +68,10 @@ section {
 
 .inputs div input,
 .inputs div textarea {
-  background: #070403;
-  color: #F6EDE9;
+  background: var(--background);
+  color: var(--color);
 
-  border: 1px solid #F6EDE9;
+  border: 1px solid var(--color);
 
   padding: .5rem;
 
@@ -73,7 +80,7 @@ section {
 
 .inputs div input:focus,
 .inputs div textarea:focus {
-  box-shadow: 0 0 1rem .5rem #F6EDE9;
+  box-shadow: 0 0 1rem .5rem var(--color);
 }
 
 .inputs div textarea {
@@ -87,8 +94,8 @@ section {
 
   font-size: 1.5rem;
 
-  background: #23A9D8;
-  color: #F6EDE9;
+  background: var(--primary);
+  color: var(--color);
 
   border: none;
   cursor: pointer;
@@ -97,15 +104,15 @@ section {
 }
 
 .inputs button:hover {
-  background: #006387;
+  background: var(--primary-hover);
 }
 
 .inputs button:active {
-  background: #005574;
+  background: var(--primary-active);
 }
 
 .inputs button:disabled {
-  background: #568b9e;
+  background: var(--primary-disabled);
   cursor: not-allowed;
 }
 
@@ -129,15 +136,15 @@ section {
 
   min-height: 10rem;
 
-  border: 1px solid #F6EDE9;
+  border: 1px solid var(--color);
   padding: 1rem;
 
   position: relative;
 }
 
 .cards .card-solved {
-  color: #6b6b6b;
-  border: 1px solid #6b6b6b;
+  color: var(--primary-disabled);
+  border: 1px solid var(--primary-disabled);
 }
 
 .card-solved .card__solve {
