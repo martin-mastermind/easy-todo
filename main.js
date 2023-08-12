@@ -90,13 +90,9 @@ function createCard(i, cardObj) {
         cardsArr.set([...cardsArr.value, cardTemp])
     })
 
-    icons.appendChild(closeIcon)
-    icons.appendChild(solveIcon)
+    icons.append(closeIcon, solveIcon)
 
-    card.appendChild(h2)
-    card.appendChild(p)
-    card.appendChild(small)
-    card.appendChild(icons)
+    card.append(h2, p, small, icons)
 
     return card
 }
