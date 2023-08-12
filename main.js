@@ -10,7 +10,7 @@ const SOLVE_ICON_DATA = {
     html: '✓'
 }
 
-const ARR_LIMiT = 32
+const ARR_LIMIT = 32
 const MESSAGES = {
     errorType: 'Invalid value type.',
     maxLengthExceeded: 'Cards array exceeded length limit (max 32 items).'
@@ -29,9 +29,9 @@ const cardsArr = {
             return false
         }
 
-        addButton.disabled = newValue.length === ARR_LIMiT
+        addButton.disabled = newValue.length === ARR_LIMIT
 
-        if (newValue.length > ARR_LIMiT) {
+        if (newValue.length > ARR_LIMIT) {
             alert(MESSAGES.maxLengthExceeded)
             return false
         }
