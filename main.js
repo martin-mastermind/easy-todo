@@ -61,9 +61,9 @@ function createCard(i, cardObj) {
     const p = document.createElement('p')
     const small = document.createElement('small')
 
-    h2.innerHTML = cardObj.title
-    p.innerHTML = cardObj.description
-    small.innerHTML = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`
+    h2.textContent = cardObj.title
+    p.textContent = cardObj.description
+    small.textContent = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`
 
     const icons = document.createElement('div')
     
@@ -84,10 +84,13 @@ function createCard(i, cardObj) {
     })
 
     solveIcon.addEventListener('click', () => {
-        const cardTemp = cardsArr.value.splice(i, 1)[0]
-        cardTemp.solved = true
-
-        cardsArr.set([...cardsArr.value, cardTemp])
+        const newCards = cardsArr.value.map((card, idx) => {
+            if (idx === i) {
+                return { ...card, solved: true }
+            }
+            return card
+        })
+        cardsArr.set(newCards)
     })
 
     icons.append(closeIcon, solveIcon)
